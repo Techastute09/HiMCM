@@ -1,0 +1,83 @@
+# General simulation settings. Zone/device counts are inferred from CSV files.
+simulation:
+  start_time: "2026-07-01 08:00:00"
+  interval_minutes: 15
+  integration_step_minutes: 1
+  duration_intervals: 16
+  pressure_pa: 101325
+  initial_humidity_ratio: 0.012
+  dry_air_density_kg_m3: 1.18
+  air_density_kg_m3: 1.20
+  cp_air_j_kg_k: 1006.0
+
+files:
+  zones: "data/station_zones_option2.csv"
+  devices: "data/cooling_devices_option2.csv"
+  connections: "data/zone_connections_option2.csv"
+  openings: "data/zone_openings_option2.csv"
+  weather: "data/outdoor_weather_option2.csv"
+  arrivals: "data/passenger_arrivals_option2.csv"
+  transitions: "data/passenger_transitions_option2.csv"
+  radiant: "data/radiant_temperature_option2.csv"
+  regression_coefficients: "linear_results/regression_coefficients.csv"
+
+model:
+  # Common humidity ratio is assumed for the whole station in this first version.
+  uniform_humidity_ratio: true
+  # Spatial airflow allocation is proportional to zone area * spatial influence.
+  airflow_allocation_area_weighted: true
+  # Prevent unrealistically large local fan-speed addition.
+  max_fan_added_speed_m_s: 4.0
+  # Use a constant background air speed if weather/zone data do not provide one.
+  default_background_wind_m_s: 0.25
+  # Optional linear regression term aliases are documented in README.
+  regression_fallback:
+    intercept: 0.0
+    air_temp: 1.0
+    rh: 0.0
+    wind_speed: 0.0
+    radiant_temp: 0.0
+
+comfort:
+  # Gaussian individual preference population; values are illustrative.
+  preferred_temp_mean_c: 25.0
+  preferred_temp_sd_c: 2.0
+  comfort_width_mean_c: 4.0
+  comfort_width_sd_c: 0.8
+  simulated_population_per_zone: 500
+  random_seed: 42
+
+economics:
+  electricity_price_per_kwh: 0.20
+  water_price_per_m3: 2.0
+  operating_days_per_year: 300
+  default_lifetime_years: 10
+  discount_rate: 0.05
+  # Illustrative monetization proxy only; replace with a defensible study value.
+  value_per_person_hour: 1.0
+  score_weights:
+    comfort_benefit: 0.50
+    energy_efficiency: 0.25
+    cost_efficiency: 0.25
+
+# Simplified geometric model.
+geometry:
+  enabled: true
+  plot_geometry: true
+  dimension_method: explicit_csv
+  zone_aspect_ratio_reference: 2.0
+  default_height_m: 10.0
+  minimum_height_m: 8.0
+  layout_method: fixed_coordinates
+  device_positions: fixed
+  opening_positions: fixed
+
+station_geometry:
+  shape: rectangle
+  length_m: 60.0
+  width_m: 20.0
+  height_m: 10.0
+  origin_x_m: 0.0
+  origin_y_m: -5.0
+  orientation_deg: 0.0
+  coordinate_note: "X follows station length; Y follows station width; Z is height above floor."

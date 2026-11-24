@@ -1,0 +1,10 @@
+class,term_standardized,coefficient
+cooler,set,1.1230024145044704
+cooler,set^2,-0.583560656
+cooler,intercept,0.11020629587100887
+no change,set,0.5362085547037638
+no change,set^2,-0.637773195
+no change,intercept,0.6425292478221644
+warmer,set,-1.659210969
+warmer,set^2,1.221333850382119
+warmer,intercept,-0.752735544

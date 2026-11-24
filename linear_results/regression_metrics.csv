@@ -1,0 +1,2 @@
+model,target,split_method,n_total,n_train,n_test,MAE,RMSE,R2
+four_variable_quadratic,SET,GroupShuffleSplit by building_id,33029,25430,7599,1.7418599364358662,2.5213752225454305,0.5637851580496362

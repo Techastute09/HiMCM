@@ -1,0 +1,2 @@
+preferred_SET_C,max_no_change_probability,interval_threshold,no_change_interval_SET_C,n_valid_records,n_cooler,n_no_change,n_warmer,set_min_observed,set_max_observed,definition
+23.292481203007526,0.5985811802868148,0.5,19.33-27.89 °„C,46657,15582,24328,6747,10.700000000000001,42.30000000000001,argmax P(no change | observed SET)

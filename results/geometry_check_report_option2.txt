@@ -1,0 +1,4 @@
+Geometry warnings (inputs were not auto-corrected):
+- Z2: rectangle extends outside station boundary.
+- Z1 and Z2 overlap by approx 22.47 m².
+- Z2 and Z4 overlap by approx 0.41 m².

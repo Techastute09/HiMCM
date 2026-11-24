@@ -1,0 +1,2 @@
+model,split_method,n_total,n_train,n_test,accuracy,log_loss
+quadratic_multinomial_logistic,GroupShuffleSplit by building_id,46657,37609,9048,0.5279619805481874,0.957457725044934

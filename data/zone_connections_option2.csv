@@ -1,0 +1,8 @@
+connection_id,from_zone,to_zone,air_exchange_m3_h,boundary_side,opening_width_m,opening_height_m,opening_area_m2
+C1,Z1,Z2,900,,,,
+C2,Z2,Z3,700,,,,
+C3,Z1,Z5,500,,,,
+C4,Z2,Z5,600,,,,
+C5,Z3,Z6,400,,,,
+C6,Z4,Z5,500,,,,
+C7,Z5,Z6,300,,,,
